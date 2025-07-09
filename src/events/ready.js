@@ -1,4 +1,4 @@
-const { Events } = require('discord.js');
+const { Events, ActivityType } = require('discord.js');
 
 
 // When the client is ready, run this code (only once).
@@ -9,5 +9,7 @@ module.exports = {
 	once: true,
 	execute(client) {
 		console.log(`✅ ${client.user.tag} is online.`);
+
+		client.user.setActivity('Providing assistance', { type: ActivityType.Custom });
 	},
 };

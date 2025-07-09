@@ -23,14 +23,14 @@ module.exports = {
 			.setColor(0x02d587)
 			.setDescription(`\`\`\`${asciiTitle}\`\`\``)
 			.addFields(
-				{ name: '\u200B', value:`
-					Hey there, I'm **Quark**!
+				{ name: '\u200B', value:
+					`Hey there, I'm **Quark**!
 					*Currently in development.*
 
 					**[Jason17701](https://github.com/Jason17701/Quark-bot)**
 					- Implementing utility commands\n
-					${divider}
-				` },
+					${divider}`,
+				},
 			)
 			.setFooter({
 				text: `Request made by ${interaction.user.tag}`,

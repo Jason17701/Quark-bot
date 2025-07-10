@@ -15,8 +15,16 @@ module.exports = {
 		.setContexts(InteractionContextType.Guild),
 
 	async execute(interaction) {
+		if (!interaction.member.permissions.has(PermissionFlagsBits.KickMembers)) {
+       		return interaction.reply({ content: 'You do not have permission to use this command.', ephemeral: true });
+		}
+
 		// Get the target user from the interaction options
 		const target = interaction.options.getUser('target');
+
+		if (target.id === interaction.user.id) {
+			return interaction.reply({ content: 'You cannot kick yourself.', ephemeral: true });
+		}
 
 		// Check if the target user is a member of the guild
 		const member = await interaction.guild.members.fetch(target.id).catch(() => null);
@@ -31,4 +39,3 @@ module.exports = {
 		return interaction.reply({ content: `${target.tag} has been kicked.`, ephemeral: true });
 	},
 };
-

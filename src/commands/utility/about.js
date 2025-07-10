@@ -36,6 +36,6 @@ module.exports = {
 				text: `Request made by ${interaction.user.tag}`,
 				iconURL: interaction.user.displayAvatarURL(),
 			});
-		await interaction.reply({ embeds: [embed] });
+		return interaction.reply({ embeds: [embed] });
 	},
 };
